@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-global.Promise = require("q").Promise;
 var mongoose = require("mongoose");
 var user_1 = require("../model/user");
 var assert_1 = require("assert");
+var util_1 = require("util");
 var url = "mongodb://127.0.0.1:27017/test";
 describe("CRUD", function () {
     it("connect", function (done) {
@@ -18,13 +18,18 @@ describe("CRUD", function () {
         }); // createConnection
     }); //it
     it("Delete Collection Data", function (done) {
-        user_1.UserModel.findOneAndRemove({ name: "shiva" }, function (err, result) {
+        user_1.UserModel.findOneAndRemove({ name: "Shiva" }, function (err, result) {
             if (err) {
                 assert_1.fail("No Delete User");
             }
             else {
-                console.log("Delete Users in collection and Result is :" + result);
-                done();
+                if (util_1.isNull(result)) {
+                    assert_1.fail("Index of Collection is False ");
+                }
+                else {
+                    console.log("Delete Users in collection and Result is :\n" + result);
+                    done();
+                }
             }
         });
     });

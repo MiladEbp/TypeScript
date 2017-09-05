@@ -1,8 +1,8 @@
 import {} from 'mocha';
-global.Promise = require("q").Promise;
 import * as mongoose from 'mongoose';
 import {UserModel} from '../model/user';
 import {fail}  from "assert";
+import {isNull} from "util";
 
 const url:string = "mongodb://127.0.0.1:27017/test";
 
@@ -22,12 +22,17 @@ describe("CRUD", function(){
 
     });//it
     it("Delete Collection Data", function(done){
-        UserModel.findOneAndRemove({name:"shiva"},function(err, result){
+        UserModel.findOneAndRemove({name:"Shiva"},function(err, result){
             if(err){
                 fail("No Delete User");
             }else{
-                console.log("Delete Users in collection and Result is :"+result);
-                done();
+                if(isNull(result)){
+                    fail("Index of Collection is False ");
+                }else{
+
+                    console.log("Delete Users in collection and Result is :\n"+result);
+                    done();
+                }
             }
         })
     });
