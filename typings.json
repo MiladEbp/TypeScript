@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "debug": "registry:npm/debug#2.0.0+20170504163145",
+    "mongoose": "registry:npm/mongoose#4.3.5+20160628072220"
+  },
+  "globalDependencies": {
+    "mocha": "registry:dt/mocha#2.2.5+20170311011848"
+  }
+}
