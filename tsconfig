@@ -1,17 +1,11 @@
 {
-    "compilerOptions":{
-        "target": "es5",
-        "module":"commonjs",
-        "noImplicitAny": false
-    },
-    "files":[
-      "/**/*.ts"
-    ],
-    "types": [
-        "mocha"
-    ],
-    "paths": {
-        "ionic-native": ["node_modules/ionic-native/dist/es5/index.d.ts"]
+    "compilerOptions": {
+        "target": "ES6",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "sourceMap": true,
+        "noResolve" : true,
+        "removeComments" :true
     }
 
 }

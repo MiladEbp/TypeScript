@@ -1,5 +1,2 @@
-
-export interface Iuser{
-    name?:string;
-    lastName?:string;
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
